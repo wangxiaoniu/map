@@ -21,15 +21,15 @@ var n =0;
 var size = allButtons.length
 
 //计时器 规定时间内 触发点击 添加red样式
+
+
+var timerId = setTimer()
 function setTimer(){
     setInterval(() => {
         n += 1
         allButtons.eq(n % size).trigger('click')
       }, 2000)
 }
-
-var timerId = setTimer()
-
 //鼠标移入 .window 层 停止 计时器
 $('.window').on('mouseenter',function(){
   window.clearInterval(timerId)
