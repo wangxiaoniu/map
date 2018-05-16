@@ -1,6 +1,7 @@
 //重构后
 var allButtons=$('#button > span')
-
+var n =0;
+var size = allButtons.length
 //遍历按钮 按钮点击切换图片
 for (let i = 0; i < allButtons.length; i++) {
   
@@ -16,22 +17,27 @@ for (let i = 0; i < allButtons.length; i++) {
   })
   
 }
+//按钮处于活动状态 字体变红色
+function activeButton($button){
+    $button
+    .addClass('red')
+   .siblings('.red').removeClass('red')
+}
 
-var n =0;
-var size = allButtons.length
 
 //计时器 规定时间内 触发点击 添加red样式
-
-
 var timerId = setTimer()
 function setTimer(){
-    setInterval(() => {
+    return setInterval(() => {
         n += 1
         allButtons.eq(n % size).trigger('click')
       }, 2000)
 }
+
+
 //鼠标移入 .window 层 停止 计时器
 $('.window').on('mouseenter',function(){
+    console.log('sdfs')
   window.clearInterval(timerId)
 })
 //鼠标离开 开启计时器
@@ -39,9 +45,3 @@ $('.window').on('mouseleave',function(){
     timerId = setTimer()
 })
 
-//按钮处于活动状态 字体变红色
-function activeButton($button){
-    $button
-    .addClass('red')
-   .siblings('.red').removeClass('red')
-}
