@@ -1,0 +1,19 @@
+.window{
+    width:300px;
+     overflow:hidden;
+     margin:0 auto;
+  }
+  .images{
+    display:flex;
+    transition:all .3s;
+
+  }
+  #button{  display:flex;    width:300px;
+    margin:0 auto;}
+  #button > span{
+    width:30px;
+    height:30px;
+    cursor:pointer;
+    text-align:center;
+  }
+  .red{color:red;}
